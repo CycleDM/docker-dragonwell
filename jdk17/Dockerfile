@@ -11,8 +11,12 @@ RUN apk add --no-cache --virtual .buildPacks wget && \
     rm dragonwell.tar.gz && \
     apk del .buildPacks
 
-ENV JAVA_HOME=/usr/lib/java
-ENV CLASSPATH=.:$JAVA_HOME/lib
-ENV PATH=$JAVA_HOME/bin:$PATH
+ENV JAVA_HOME=/usr/lib/java \
+    CLASSPATH=.:/usr/lib/java/lib \
+    PATH=/usr/lib/java/bin:$PATH
+
+# Check version
+RUN java -version && \
+    javac -version
 
 CMD ["java","-version"]
