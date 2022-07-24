@@ -2,7 +2,7 @@ FROM alpine:latest
 
 RUN apk add --no-cache --virtual .buildPacks wget && \
     # 下载安装Dragonwell JDK
-    wget -O dragonwell.tar.gz "https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.1.0.1+12_jdk-17.0.1-ga/Alibaba_Dragonwell_17.0.1.0.1+12_x64_alpine-linux.tar.gz" && \
+    wget -O dragonwell.tar.gz "https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3+7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_x64_alpine-linux.tar.gz" && \
     mkdir /usr/lib/java && \
     mkdir dragonwell && \
     tar -xzf dragonwell.tar.gz -C dragonwell --strip-components=1 && \
